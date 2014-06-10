@@ -29,31 +29,31 @@ software with `valgrind` to trace leaks and bad memory accesses.
 
 1. `my_strlen`
 
-       unsigned int my_strlen(const char* s)
+        unsigned int my_strlen(const char* s)
 
     Counts the number of letters in the string until the first '\0'.
 
 2. `my_strcmp` and `my_strncmp`
 
-       int my_strcmp(const char* s1, const char* s2)
+        int my_strcmp(const char* s1, const char* s2)
 
    Compares the two strings.
    Return values is `s1[i] - s2[i]` with `i` being the index of either the
    first mismatching char or the end of the strings.
 
-       int my_strncmp(const char* s1, const char* s2, const unsigned int lim)
+        int my_strncmp(const char* s1, const char* s2, const unsigned int lim)
 
    Does exactly the same as `my_strcmp`, but takes as its last argument a
    limit of characters to compare.
 
 3. `my_strcpy` and `my_strncpy`
 
-       char* my_strcpy(char* dest, const char* src)
+        char* my_strcpy(char* dest, const char* src)
 
    Copies the integrality of `src` in `dest` including terminating '\0'.
    Please note the necessity of `dest` to be larger than `src`.
 
-       char* my_strncpy(char* dest, const char* src, const unsigned int n)
+        char* my_strncpy(char* dest, const char* src, const unsigned int n)
 
    Does the same as `my_strcpy`, but copies `n` characters of `src`.
    If there is no `0` in the `n` first bytes of `src`, the string
@@ -63,25 +63,25 @@ software with `valgrind` to trace leaks and bad memory accesses.
 
 4. `my_strdup`
 
-       char* my_strdup(const char* s)
+        char* my_strdup(const char* s)
 
    Creates a copy of the string `s` and returns it.
 
 5. `my_strcat` and `my_newstrcat`
 
-       char* my_strcat(char* dest, const char* src);
+        char* my_strcat(char* dest, const char* src);
 
    Appends the content of `src` into dest, replacing the initial `\0`
    and appending one at the end.
    Please note the necessity of `dest` to be larger than `dest + src`.
 
-       char* my_newstrcat(const char* s1, const char* s2)
+        char* my_newstrcat(const char* s1, const char* s2)
 
    Takes two strings as parameter and combines them, returning a new one.
 
 6. `my_strtok` and `free_keys`
 
-       char** my_strtok(const char* s, const char* delim)
+        char** my_strtok(const char* s, const char* delim)
 
    This is not the standard behaviour of strtok, but allows for more
    flexibility.
@@ -89,6 +89,6 @@ software with `valgrind` to trace leaks and bad memory accesses.
    in an array of substrings, e.g. `my_strtok("a-b-c", "-")` gives
    `["a", "b", "c"]`
 
-       void my_freek(char** a)
+        void my_freek(char** a)
 
    This function is made to clear the array returned by `my_strtok`.
