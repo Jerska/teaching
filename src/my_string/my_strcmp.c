@@ -1,20 +1,20 @@
 #include "my_strcmp.h"
 
 int my_strcmp(const char* s1, const char* s2) {
-  (void) s1;
-  (void) s2;
-
-  // TODO
-
-  return 42;
+  return my_strncmp(s1, s2, -1);
 }
 
 int my_strncmp(const char* s1, const char* s2, const unsigned int lim) {
-  (void) s1;
-  (void) s2;
-  (void) lim;
+  unsigned int i = 0;
 
-  // TODO
+  while (
+      i < lim &&
+      s1[i] &&
+      s2[i] &&
+      s1[i] == s2[i]
+  ) {
+    ++i;
+  }
 
-  return 42;
+  return i == lim ? 0 : s1[i] - s2[i];
 }
