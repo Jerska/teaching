@@ -57,6 +57,9 @@ int main(void) {
   ASSERT((tmp = my_newstrcat("a\0e", "bcd\0f")) && my_strcmp(tmp, "abcd") == 0); free(tmp);
 
   CATEGORY(my_strtok);
+  ASSERT((tab = my_strtok("", "")) && tab[0] == NULL); my_freek(tab);
+  ASSERT((tab = my_strtok("", ",")) && my_strcmp(tab[0], "") == 0 && tab[1] == NULL); my_freek(tab);
+  ASSERT((tab = my_strtok("abc", "")) && my_strcmp(tab[0], "a") == 0 && my_strcmp(tab[1], "b") == 0 && my_strcmp(tab[2], "c") == 0 && tab[3] == NULL); my_freek(tab);
   ASSERT((tab = my_strtok("a,b,c", ",")) && my_strcmp(tab[0], "a") == 0 && my_strcmp(tab[1], "b") == 0 && my_strcmp(tab[2], "c") == 0 && tab[3] == NULL); my_freek(tab);
   ASSERT((tab = my_strtok("a,,b,,c", ",,")) && my_strcmp(tab[0], "a") == 0 && my_strcmp(tab[1], "b") == 0 && my_strcmp(tab[2], "c") == 0 && tab[3] == NULL); my_freek(tab);
   ASSERT((tab = my_strtok(",,,,", ",,")) && my_strcmp(tab[0], "") == 0 && my_strcmp(tab[1], "") == 0 && my_strcmp(tab[2], "") == 0 && tab[3] == NULL); my_freek(tab);
